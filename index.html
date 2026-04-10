@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ying Qu | Sociologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #8A1A2E;
+      --accent-light: #a82340;
+      --accent-soft: #fdf0f2;
+      --purple: #7B6FA0;
+      --purple-light: #9585BE;
+      --purple-soft: #f3f0fa;
+      --text: #1c1c1e;
+      --text-muted: #555;
+      --border: #e5e0e8;
+      --bg: #ffffff;
+      --bg-section: #faf8fc;
+      --tag-bg: #f3f0fa;
+      --tag-color: #5a4a80;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .nav-brand { font-weight: 600; font-size: 15px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    #about { max-width: 1000px; margin: 0 auto; padding: 72px 24px 56px; display: grid; grid-template-columns: 1fr 200px; gap: 48px; align-items: start; }
+    .hero-text h1 { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 600; color: var(--accent); margin-bottom: 4px; line-height: 1.2; }
+    .hero-text .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; }
+    .hero-text p { color: var(--text-muted); max-width: 580px; margin-bottom: 12px; font-size: 15px; }
+    .interests { margin-top: 20px; }
+    .interests h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--tag-bg); color: var(--tag-color); padding: 4px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 500; }
+    .hero-photo { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .photo-placeholder { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #e8c0c8 0%, #c8a8c0 100%); display: flex; align-items: center; justify-content: center; font-size: 56px; font-family: 'Lora', serif; color: var(--accent); font-weight: 600; border: 4px solid white; box-shadow: 0 4px 24px rgba(138,26,46,0.15); }
+    .photo-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 24px rgba(138,26,46,0.15); }
+    .contact-links { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+    .contact-links a { font-size: 12.5px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: opacity 0.2s; }
+    .contact-links a:hover { opacity: 0.75; }
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    section:nth-of-type(even) { background: var(--bg-section); }
+    .section-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .section-title { font-family: 'Lora', serif; font-size: 1.55rem; color: var(--accent); margin-bottom: 32px; font-weight: 600; }
+    .edu-list { display: flex; flex-direction: column; gap: 20px; }
+    .edu-item { display: grid; grid-template-columns: 3px 1fr; gap: 16px; }
+    .edu-bar { background: var(--accent-light); border-radius: 3px; min-height: 100%; }
+    .edu-body strong { color: var(--text); font-size: 14.5px; }
+    .edu-body .degree { color: var(--accent); font-size: 13.5px; font-weight: 500; }
+    .edu-body .years { color: var(--text-muted); font-size: 12.5px; }
+    .pub-group { margin-bottom: 36px; }
+    .pub-group-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 600; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid var(--accent-soft); }
+    .pub-list { display: flex; flex-direction: column; gap: 16px; }
+    .pub-item { padding: 16px 20px; background: white; border-radius: 8px; border-left: 3px solid var(--accent); box-shadow: 0 1px 6px rgba(0,0,0,0.05); transition: box-shadow 0.2s; }
+    .pub-item:hover { box-shadow: 0 3px 14px rgba(138,26,46,0.10); }
+    .pub-item.under-review { border-left-color: var(--purple); }
+    .pub-title { font-style: italic; color: var(--text); font-size: 14.5px; margin-bottom: 4px; font-family: 'Lora', serif; }
+    .pub-meta { font-size: 12.5px; color: var(--text-muted); }
+    .pub-journal { font-weight: 600; color: var(--accent); }
+    .badge { display: inline-block; font-size: 10.5px; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+    .badge-review { background: var(--purple-soft); color: var(--purple); }
+    .badge-forthcoming { background: #fdf0f2; color: var(--accent); }
+    .pres-list { display: flex; flex-direction: column; gap: 14px; }
+    .pres-item { padding: 14px 18px; background: white; border-radius: 8px; border-left: 3px solid var(--purple-light); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+    .pres-title { font-style: italic; font-size: 14px; font-family: 'Lora', serif; color: var(--text); margin-bottom: 3px; }
+    .pres-venue { font-size: 12.5px; color: var(--text-muted); }
+    .teaching-list { display: flex; flex-direction: column; gap: 10px; }
+    .teaching-item { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 16px; background: white; border-radius: 6px; border: 1px solid var(--border); }
+    .teaching-role { font-size: 14px; color: var(--text); }
+    .teaching-role span { color: var(--text-muted); font-size: 13px; }
+    .teaching-term { font-size: 12.5px; color: var(--text-muted); white-space: nowrap; margin-left: 12px; }
+    .exp-list { display: flex; flex-direction: column; gap: 14px; }
+    .exp-item { padding: 14px 18px; background: white; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+    .exp-role { font-weight: 500; font-size: 14.5px; margin-bottom: 2px; }
+    .exp-detail { font-size: 13px; color: var(--text-muted); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .skill-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+    .skill-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+    .skill-card p { font-size: 13.5px; color: var(--text-muted); }
+    .cv-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; background: var(--accent); color: white; text-decoration: none; padding: 10px 22px; border-radius: 6px; font-size: 13.5px; font-weight: 500; transition: background 0.2s; }
+    .cv-cta:hover { background: var(--accent-light); }
+    footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text-muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 680px) { #about { grid-template-columns: 1fr; } .hero-photo { order: -1; flex-direction: row; align-items: center; } .hero-text h1 { font-size: 1.8rem; } .teaching-item { flex-direction: column; gap: 2px; } }
+  </style>
+</head>
+<body>
+<nav><div class="nav-inner"><a class="nav-brand" href="#about">Ying Qu</a><ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#publications">Publications</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#cv">CV</a></li></ul></div></nav>
+<div id="about">
+  <div class="hero-text">
+    <h1>Ying Qu</h1>
+    <p class="subtitle">Ph.D. Student in Sociology &nbsp;&middot;&nbsp; Boston College</p>
+    <p>I am a doctoral student in the Department of Sociology at Boston College (2023&ndash;present). My research sits at the intersection of work and occupations, gender inequality, and medical sociology, with a strong interest in survey experimental methods.</p>
+    <p>Before coming to Boston College, I received my M.A. in Anthropology from Fudan University (Shanghai) and my B.A. in Sociology from East China Normal University (Shanghai).</p>
+    <div class="interests"><h3>Research Interests</h3><div class="tags"><span class="tag">Work &amp; Occupations</span><span class="tag">Gender &amp; Workplace Inequality</span><span class="tag">Medical Sociology</span><span class="tag">Survey Experiments</span></div></div>
+  </div>
+  <div class="hero-photo">
+    <img class="photo-img" src="https://www.bc.edu/content/bc-web/schools/morrissey/departments/sociology/people/graduate-students/ying-qu/_jcr_content/profileImage.img.png" alt="Ying Qu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="photo-placeholder" style="display:none;">YQ</div>
+    <div class="contact-links">
+      <a href="mailto:quyn@bc.edu"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>quyn@bc.edu</a>
+      <a href="https://www.bc.edu/bc-web/schools/morrissey/departments/sociology/people/graduate-students/ying-qu.html" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>BC Profile</a>
+      <a href="#cv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Curriculum Vitae</a>
+    </div>
+  </div>
+</div>
+<section><div class="section-inner"><h2 class="section-title">Education</h2><div class="edu-list"><div class="edu-item"><div class="edu-bar"></div><div class="edu-body"><strong>Boston College</strong><br/><span class="degree">Ph.D. in Sociology</span><br/><span class="years">2023 &ndash; Present &middot; Chestnut Hill, MA</span></div></div><div class="edu-item"><div class="edu-bar"></div><div class="edu-body"><strong>Fudan University</strong><br/><span class="degree">M.A. in Anthropology</span><br/><span class="years">2019 &ndash; 2022 &middot; Shanghai, China</span></div></div><div class="edu-item"><div class="edu-bar"></div><div class="edu-body"><strong>East China Normal University</strong><br/><span class="degree">B.A. in Sociology</span><br/><span class="years">2015 &ndash; 2019 &middot; Shanghai, China</span></div></div></div></div></section>
+<section id="research"><div class="section-inner"><h2 class="section-title">Research</h2><p style="color:var(--text-muted);max-width:680px;margin-bottom:28px;">My work draws on experimental and quantitative methods&mdash;including survey list experiments, longitudinal surveys, and cluster analysis&mdash;to examine how organizational structures and cultural norms shape inequality in workplaces and health outcomes.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;"><div class="skill-card" style="border-left:3px solid var(--accent);"><h4>Current Projects</h4><p>Gender bias in Chinese tech managerial hiring (list experiment) &middot; Working from home and civic participation (UK HLDS) &middot; Racial distribution of health risks in Southern U.S. cities</p></div><div class="skill-card" style="border-left:3px solid var(--purple);"><h4>Methods</h4><p>Survey &amp; list experiments &middot; Hierarchical linear modeling &middot; Multinomial logistic regression &middot; Cluster analysis &middot; Ethnography</p></div></div><div style="margin-top:28px;"><h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:12px;">Research Experience</h3><div class="exp-list"><div class="exp-item"><div class="exp-role">Graduate Research Assistant &ndash; Four Day Workweek Project</div><div class="exp-detail">With Juliet Schor and Wen Fan &middot; Boston College &middot; 2025&ndash;2026</div></div><div class="exp-item"><div class="exp-role">Graduate Research Assistant &ndash; Environment and Health Outcomes</div><div class="exp-detail">With Lacee A. Satcher &middot; Boston College &middot; 2024</div></div><div class="exp-item"><div class="exp-role">Master's Thesis Research</div><div class="exp-detail">&ldquo;Between &lsquo;Stubborn Body&rsquo; and &lsquo;Easy Lean Body&rsquo;: Body, Technology and Business Experience in Fermented Nutrition Weight Loss&rdquo; &middot; Fudan University &middot; 2020&ndash;2022</div></div><div class="exp-item"><div class="exp-role">Research Assistant &ndash; Nanjing MetroBaby Longitudinal Survey</div><div class="exp-detail">With Grace Zhang and Xuan Li &middot; Nanjing &middot; 2021&ndash;2022</div></div></div></div></div></section>
+<section id="publications"><div class="section-inner"><h2 class="section-title">Publications</h2><div class="pub-group"><div class="pub-group-title">Under Review</div><div class="pub-list"><div class="pub-item under-review"><div class="pub-title">&ldquo;When Stakes Matter: Evidence from a List Experiment on Gender Bias among Chinese Tech Managers&rdquo;</div><div class="pub-meta">Qu, Ying. &nbsp;<span class="pub-journal">Social Forces</span> <span class="badge badge-review">Under Review</span></div></div><div class="pub-item under-review"><div class="pub-title">&ldquo;Detoxifying the Self: Gendered Governance through Yoga and Fermented Nutrition in China&rdquo;</div><div class="pub-meta">Qu, Ying. &nbsp;<span class="pub-journal">Body and Society</span> <span class="badge badge-review">Under Review</span></div></div><div class="pub-item under-review"><div class="pub-title">&ldquo;The Therapeutic Efficacy of Tujia Bone-Setting and Joint-Reduction Techniques in Fracture Healing Practice&rdquo;</div><div class="pub-meta">Qu, Ying. &nbsp;<span class="pub-journal">Journal of Minzu University of China</span> <span class="badge badge-review">Under Review</span></div></div></div></div><div class="pub-group"><div class="pub-group-title">Peer-Reviewed Journal Articles</div><div class="pub-list"><div class="pub-item"><div class="pub-title">&ldquo;Race and Risk: Disentangling the Racialized Distribution of Neighborhood Resources and Differential Health Risks in Southern U.S. Cities&rdquo;</div><div class="pub-meta">Satcher, L. and Ying Qu. &nbsp;<span class="pub-journal">Journal of Racial and Ethnic Health Disparities</span>, 2026. <span class="badge badge-forthcoming">Forthcoming</span></div></div><div class="pub-item"><div class="pub-title">&ldquo;School Effects of Father Presence on Middle School Students' Academic Performance: A Hierarchical Linear Modeling Analysis Based on CEPS Data&rdquo;</div><div class="pub-meta">Qu, Ying and Yidan Zhang. &nbsp;<span class="pub-journal">2021 International Conference on Internet, Education and Information Technology</span>: 309&ndash;318.</div></div><div class="pub-item"><div class="pub-title">&ldquo;How Asthma Becomes a Part of Self: Illness and Treatment Narratives Based on Patients with Chronic Diseases&rdquo;</div><div class="pub-meta">Qu, Ying and Yidan Zhang. &nbsp;<span class="pub-journal">E3S Web of Conferences</span> 271, 03050 (2021).</div></div><div class="pub-item"><div class="pub-title">&ldquo;Ethnic Cultural Consciousness in the Transmission of Intangible Cultural Heritage: The Revival of Tujia Sanbanggu Art in Western Hunan&rdquo;</div><div class="pub-meta">Qu, Ying. &nbsp;<span class="pub-journal">Journal of Jishou University (Social Sciences)</span> S2: 99&ndash;103, 2018. [Chinese]</div></div><div class="pub-item"><div class="pub-title">&ldquo;Era of Post-World Cultural Heritage Application: Introspection of Village Trust Change and Site Development Model&rdquo;</div><div class="pub-meta">Chen, Tingliang, and Ying Qu. &nbsp;<span class="pub-journal">China Three Gorges Tribune</span> (2): 25&ndash;30, 2018. [Chinese]</div></div><div class="pub-item"><div class="pub-title">&ldquo;Reflection on the Protection of Nonmaterial Cultural Heritage from &lsquo;Cultural Consciousness&rsquo;&rdquo;</div><div class="pub-meta">Qu, Ying. &nbsp;<span class="pub-journal">Religionary Faith and Ethnic Culture</span> (02): 137&ndash;148, 2018. [Chinese]</div></div><div class="pub-item"><div class="pub-title">&ldquo;An Analysis of the Social Function and Cultural Psychology System of Han Love Songs in Southwest Hunan Ethnic Areas&rdquo;</div><div class="pub-meta">Tang, Youjun, and Ying Qu. &nbsp;<span class="pub-journal">Minzu Tribune</span> (03): 36&ndash;41+94, 2018. [Chinese]</div></div></div></div><div class="pub-group" id="presentations"><div class="pub-group-title">Conference Presentations (Selected)</div><div class="pres-list"><div class="pres-item"><div class="pres-title">&ldquo;Rewiring Civic Life: Working from Home and Volunteering&mdash;Evidence from the UK Household Longitudinal Study 2009&ndash;2023&rdquo;</div><div class="pres-venue">Eastern Sociological Society (ESS) &middot; Washington, DC &middot; March 2026</div></div><div class="pres-item"><div class="pres-title">&ldquo;Detoxifying the Self: Gendered Governance through Yoga and Fermented Nutrition in China&rdquo;</div><div class="pres-venue">ESS &middot; Washington, DC &middot; March 2026 &nbsp;|&nbsp; ESS, Boston &middot; March 2025</div></div><div class="pres-item"><div class="pres-title">&ldquo;When Stakes Matter: Evidence from a List Experiment on Gender Bias among Chinese Tech Managers&rdquo;</div><div class="pres-venue">American Sociological Association (ASA) &middot; Chicago &middot; August 2025</div></div><div class="pres-item"><div class="pres-title">&ldquo;Do Longer Work Hours Reduce Parental Involvement? A Cluster Analysis and Multinomial Logistic Regression Using CFPS Data, 2012&ndash;2020&rdquo;</div><div class="pres-venue">RC28 Spring Meeting / ASA &middot; NYU Shanghai &middot; May 2024</div></div></div></div></div></section>
+<section id="teaching"><div class="section-inner"><h2 class="section-title">Teaching</h2><div class="teaching-list"><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Statistics (Zine Magubane) &middot; Boston College</span></div><div class="teaching-term">Fall 2025</div></div><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Statistics (Lacee A. Satcher) &middot; Boston College</span></div><div class="teaching-term">Spring 2025</div></div><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Statistics (Sara Moorman) &middot; Boston College</span></div><div class="teaching-term">Fall 2024</div></div><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Sociology of Illness and Health (Josh Seim) &middot; Boston College</span></div><div class="teaching-term">Spring 2024</div></div><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Statistics (Sara Moorman) &middot; Boston College</span></div><div class="teaching-term">Fall 2023</div></div><div class="teaching-item"><div class="teaching-role">Undergraduate Teaching Assistant, <span>Consumer Culture and Youth in China (Amir Hampel) &middot; NYU Shanghai</span></div><div class="teaching-term">Fall 2023</div></div></div><div style="margin-top:32px;"><h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:16px;">Skills &amp; Training</h3><div class="skills-grid"><div class="skill-card"><h4>Software</h4><p>CiteSpace &middot; VOSviewer &middot; SPSS &middot; Stata</p></div><div class="skill-card"><h4>Programming</h4><p>R &middot; Python &middot; C#</p></div><div class="skill-card"><h4>Document Preparation</h4><p>LaTeX</p></div><div class="skill-card"><h4>Advanced Training</h4><p>GESIS Spring Seminar 2025 &ndash; Experimental Designs in Social &amp; Behavioral Sciences</p></div></div></div></div></section>
+<section id="cv"><div class="section-inner"><h2 class="section-title">Curriculum Vitae</h2><p style="color:var(--text-muted);margin-bottom:16px;">Download my full CV for a comprehensive overview of my research, teaching, and professional experience.</p><a class="cv-cta" href="cv.pdf" download><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV (PDF)</a><div style="margin-top:24px;padding:16px 20px;background:var(--accent-soft);border-radius:8px;max-width:480px;"><p style="font-size:13px;color:var(--accent);"><strong>Contact:</strong><br/>Department of Sociology, Boston College<br/>140 Commonwealth Avenue, Chestnut Hill, MA 02467<br/><a href="mailto:quyn@bc.edu" style="color:var(--accent-light);">quyn@bc.edu</a></p></div></div></section>
+<footer><p>&copy; 2026 Ying Qu &nbsp;&middot;&nbsp; Department of Sociology, Boston College &nbsp;&middot;&nbsp; <a href="mailto:quyn@bc.edu">quyn@bc.edu</a></p></footer>
+</body>
+</html>
